@@ -50,9 +50,29 @@ button {
   cursor: pointer;
 }
 
+.filters-bar {
+  display: flex;
+  justify-content: center;
+  margin: 1.5rem 0;
+  gap: 1rem;
+}
+.filters-bar > button {
+  background-color: white;
+  padding: 0.3rem 2rem;
+  border: 1px solid #e0e0e0;
+  border-radius: 5rem;
+}
+.filters-bar > button:hover {
+  cursor: pointer;
+}
+.filters-bar > .btn-active {
+  background-color: #ffc06e;
+  border: 1px solid black;
+}
+
 #restaurant-container {
   width: 1000px;
-  margin: 3rem auto 10rem auto;
+  margin: 0 auto 10rem auto;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
