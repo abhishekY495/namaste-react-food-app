@@ -1,4 +1,4 @@
-const restaurantList = [
+const restaurantsData = [
   {
     info: {
       id: "650753",
@@ -191,7 +191,7 @@ const restaurantList = [
       areaName: "Santacruz East",
       costForTwo: "₹300 for two",
       cuisines: ["North Indian", "Chinese", "Tibetan", "Desserts"],
-      avgRating: 4.1,
+      avgRating: 3.8,
       feeDetails: {
         restaurantId: "296658",
         fees: [
@@ -209,7 +209,7 @@ const restaurantList = [
         totalFee: 3500,
       },
       parentId: "434792",
-      avgRatingString: "4.1",
+      avgRatingString: "3.8",
       totalRatingsString: "1K+",
       sla: {
         deliveryTime: 21,
@@ -2202,4 +2202,4 @@ const restaurantList = [
   },
 ];
 
-export default restaurantList;
+export default restaurantsData;
