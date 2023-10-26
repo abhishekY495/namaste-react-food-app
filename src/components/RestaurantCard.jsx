@@ -15,10 +15,11 @@ const RestaurantCard = ({ restaurantData }) => {
       sla,
       avgRatingString,
     },
+    cta: { link },
   } = restaurantData;
 
   return (
-    <a key={id} href="/" className="restaurant-card">
+    <a key={id} href={link} className="restaurant-card" target="_blank">
       <div className="restaurant-details">
         <img
           className="restaurant-image"
