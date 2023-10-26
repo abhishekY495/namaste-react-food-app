@@ -35,7 +35,6 @@ const RestaurantCard = ({ restaurantData }) => {
         <p className="cuisines-list">{cuisines.join(", ")}</p>
         <p className="locality">{locality}</p>
       </div>
-      <div className="black-bottom-blur"></div>
     </a>
   );
 };
