@@ -4,24 +4,35 @@ import restaurantsData from "../utils/mockData";
 import { API_URL } from "../utils/constants";
 
 import RestaurantCard from "./RestaurantCard";
-import Shimmer from "./Shimmer";
+import ShimmerCard from "./ShimmerCard";
 
 const RestaurantsContainer = () => {
   const [restaurantList, setRestaurantList] = useState([]);
   const [filteredRestaurantList, setFilteredRestaurantList] = useState([]);
-  const [topRated, setTopRated] = useState(false);
+  const [searchTerm, setSearchTerm] = useState("");
+  const [searched, setSearched] = useState(false);
   const [loading, setLoading] = useState(false);
 
-  const topRatedBtnHandler = () => {
-    setTopRated(!topRated);
-    if (!topRated) {
-      const filteredRestaurantList = restaurantList.filter(
-        (restaurant) => restaurant.info.avgRating > 4
+  const searchBtnHandler = () => {
+    if (searchTerm.trim().length !== 0) {
+      const searchedRestaurantList = restaurantList.filter((restaurant) =>
+        restaurant?.info?.name
+          .trim()
+          .toLowerCase()
+          .includes(searchTerm.toLocaleLowerCase())
       );
-      setFilteredRestaurantList(filteredRestaurantList);
+      setFilteredRestaurantList(searchedRestaurantList);
+      setSearched(true);
     } else {
-      setFilteredRestaurantList(restaurantList);
+      alert("Cannot be empty");
+      setSearchTerm("");
     }
+  };
+
+  const showAllBtnHandler = () => {
+    setFilteredRestaurantList(restaurantList);
+    setSearched(false);
+    setSearchTerm("");
   };
 
   const fetchRestaurantsData = async () => {
@@ -47,33 +58,47 @@ const RestaurantsContainer = () => {
   return (
     <>
       <div className="filters-bar">
-        <button
-          className={topRated ? "btn-active" : ""}
-          onClick={topRatedBtnHandler}
-        >
-          Top Rated
-        </button>
+        <div className="search">
+          <input
+            type="text"
+            value={searchTerm}
+            onChange={(e) => setSearchTerm(e.target.value)}
+          />
+          <button onClick={searchBtnHandler}>Search</button>
+        </div>
+        {searched && (
+          <button className="show-all-btn" onClick={showAllBtnHandler}>
+            Show All
+          </button>
+        )}
       </div>
       {/*  */}
       <div id="restaurant-container">
         {loading && (
           <>
-            <Shimmer />
-            <Shimmer />
-            <Shimmer />
-            <Shimmer />
-            <Shimmer />
-            <Shimmer />
+            <ShimmerCard />
+            <ShimmerCard />
+            <ShimmerCard />
+            <ShimmerCard />
+            <ShimmerCard />
+            <ShimmerCard />
+            <ShimmerCard />
+            <ShimmerCard />
+            <ShimmerCard />
           </>
         )}
-        {filteredRestaurantList.map((restaurant) => {
-          return (
-            <RestaurantCard
-              key={restaurant?.info?.id}
-              restaurantData={restaurant}
-            />
-          );
-        })}
+        {filteredRestaurantList.length === 0 && !loading ? (
+          <p className="search-error-message">No such Restaurant found</p>
+        ) : (
+          filteredRestaurantList.map((restaurant) => {
+            return (
+              <RestaurantCard
+                key={restaurant?.info?.id}
+                restaurantData={restaurant}
+              />
+            );
+          })
+        )}
       </div>
     </>
   );
