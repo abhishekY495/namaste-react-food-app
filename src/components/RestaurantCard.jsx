@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 import { CDN_URL } from "../utils/constants";
 
@@ -15,11 +16,14 @@ const RestaurantCard = ({ restaurantData }) => {
       sla,
       avgRatingString,
     },
-    cta: { link },
   } = restaurantData;
 
   return (
-    <a key={id} href={link} className="restaurant-card" target="_blank">
+    <Link
+      key={id}
+      to={`/restaurant/${id}`}
+      className="restaurant-card"
+    >
       <div className="restaurant-details">
         <img
           className="restaurant-image"
@@ -36,7 +40,7 @@ const RestaurantCard = ({ restaurantData }) => {
         <p className="cuisines-list">{cuisines.join(", ")}</p>
         <p className="locality">{locality}</p>
       </div>
-    </a>
+    </Link>
   );
 };
 
