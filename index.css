@@ -2,6 +2,7 @@
 
 body {
   font-family: "Poppins", sans-serif;
+  overflow-y: scroll;
 }
 
 * {
@@ -504,4 +505,57 @@ button {
   border-radius: 5px;
   width: 100px;
   height: 80px;
+}
+
+.class-component-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  justify-content: center;
+  margin-top: 5rem;
+  padding: 2rem;
+  background-color: #f4f4f4;
+}
+
+.class-component-card > button {
+  background-color: #fff;
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+}
+.number {
+  font-size: x-large;
+}
+.class-component-card > button:hover {
+  cursor: pointer;
+  background-color: #ccc;
+}
+
+.profile-card {
+  background-color: #202020;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2rem;
+  gap: 1rem;
+}
+.profile-card > img {
+  width: 200px;
+  border-radius: 50%;
+  object-fit: cover;
+  object-position: center;
+}
+.profile-card > div > p {
+  color: white;
+  line-height: 1.3rem;
+  text-align: center;
+}
+.profile-card > div > .username {
+  color: #c6c6c6;
+  font-size: small;
+}
+
+.profile-card > a {
+  color: rgb(134, 142, 255);
 }
