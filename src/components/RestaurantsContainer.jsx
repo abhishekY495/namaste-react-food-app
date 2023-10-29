@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 
-import restaurantsData from "../utils/mockData";
+// import restaurantsData from "../utils/mockData";
 import { API_URL } from "../utils/constants";
 
 import RestaurantCard from "./RestaurantCard";
@@ -12,6 +12,7 @@ const RestaurantsContainer = () => {
   const [searchTerm, setSearchTerm] = useState("");
   const [searched, setSearched] = useState(false);
   const [loading, setLoading] = useState(false);
+  const [apiError, setApiError] = useState(false);
 
   const searchBtnHandler = () => {
     if (searchTerm.trim().length !== 0) {
@@ -40,12 +41,13 @@ const RestaurantsContainer = () => {
       setLoading(true);
       const response = await fetch(API_URL);
       const data = await response.json();
-      setFilteredRestaurantList(data);
-      setRestaurantList(data);
-    } catch (error) {
-      console.log(error);
+      const restaurantsData =
+        data?.data?.cards[5]?.card?.card?.gridElements?.infoWithStyle
+          ?.restaurants;
       setFilteredRestaurantList(restaurantsData);
       setRestaurantList(restaurantsData);
+    } catch (error) {
+      setApiError(true);
     } finally {
       setLoading(false);
     }
@@ -87,7 +89,12 @@ const RestaurantsContainer = () => {
             <ShimmerCard />
           </>
         )}
-        {filteredRestaurantList.length === 0 && !loading ? (
+        {apiError && !loading && (
+          <p>
+            Swiggy API down. <br /> Try after sometime
+          </p>
+        )}
+        {filteredRestaurantList.length === 0 && !loading && !apiError ? (
           <p className="search-error-message">No such Restaurant found</p>
         ) : (
           filteredRestaurantList.map((restaurant) => {
