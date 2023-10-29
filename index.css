@@ -41,13 +41,8 @@ button {
 }
 
 #login-btn {
-  padding: 0.5rem 1rem;
-  background-color: #eee;
-  border-radius: 0.5rem;
-}
-#login-btn:hover {
-  background-color: #e1e1e1;
-  cursor: pointer;
+  text-decoration: underline 3px blue;
+  text-underline-offset: 2px;
 }
 
 .filters-bar {
@@ -123,7 +118,7 @@ button {
 .restaurant-details-shimmer-card > .restaurant-image {
   background-color: #f2f2f2;
   border-radius: 10px;
-  animation: example 1s infinite;
+  animation: example 0.5s infinite;
 }
 .restaurant-details-shimmer-card > .rating-and-sla {
   background-color: #f2f2f2;
@@ -132,7 +127,7 @@ button {
   width: 120px;
   border-radius: 8px;
   margin: 0.5rem 0;
-  animation: example 1s infinite;
+  animation: example 0.5s infinite;
 }
 .restaurant-details-shimmer-card > .restaurant-name {
   background-color: #f2f2f2;
@@ -141,7 +136,7 @@ button {
   width: 250px;
   border-radius: 8px;
   margin: 0.5rem 0;
-  animation: example 1s infinite;
+  animation: example 0.5s infinite;
 }
 .restaurant-details-shimmer-card > .cuisines-list {
   background-color: #f2f2f2;
@@ -150,7 +145,7 @@ button {
   width: 180px;
   border-radius: 8px;
   margin: 0.5rem 0;
-  animation: example 1s infinite;
+  animation: example 0.5s infinite;
 }
 .restaurant-details-shimmer-card > .locality {
   background-color: #f2f2f2;
@@ -159,7 +154,7 @@ button {
   width: 80px;
   border-radius: 8px;
   margin: 0.5rem 0;
-  animation: example 1s infinite;
+  animation: example 0.5s infinite;
 }
 
 .restaurant-card:hover {
@@ -225,4 +220,288 @@ button {
   .filters-bar {
     width: 100%;
   }
+}
+
+#error-message {
+  text-align: center;
+  font-size: 1rem;
+  margin-top: 5rem;
+}
+
+#error-message > p {
+  font-size: 1.5rem;
+  background-color: yellow;
+  padding: 0.5rem 0;
+}
+
+#login-container {
+  font-size: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 2rem;
+  align-items: center;
+  background-color: #eaeaea;
+  width: 300px;
+  margin: 2rem auto;
+  padding: 1.5rem 0.5rem;
+  border-radius: 5px;
+}
+#login-container > div > input {
+  height: 30px;
+  width: 200px;
+  padding: 0 0.5rem;
+  font-size: large;
+}
+#login-container > button {
+  background-color: orange;
+  padding: 0.3rem 5rem;
+  border-radius: 5px;
+}
+#login-container > button:hover {
+  cursor: pointer;
+  opacity: 90%;
+}
+.mandatory {
+  color: red;
+}
+
+.restaurant-menu-container {
+  width: 800px;
+  margin: 1rem auto 5rem auto;
+  display: flex;
+  flex-direction: column;
+}
+.restaurant-menu {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.restaurant-details-2 {
+  display: flex;
+  gap: 1rem;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px dashed #cecece;
+  padding: 0 0 0.5rem 0;
+}
+.restaurant-details-name {
+  font-size: larger;
+  font-weight: bold;
+}
+.restaurant-details-cuisines {
+  width: 200px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  color: #9b9b9b;
+  font-weight: 300;
+}
+.restaurant-details-areaname {
+  color: #9b9b9b;
+  font-weight: 300;
+}
+
+.rating-details {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  border-bottom: 1px solid #eeeeee;
+}
+.rating-details > p {
+  font-weight: 500;
+}
+.rating-details > img {
+  width: 18px;
+  height: 18px;
+}
+.restaurant-details-rating {
+  color: #9b9b9b;
+}
+
+@media (max-width: 830px) {
+  .restaurant-menu-container {
+    width: 90%;
+    padding: 0 1.5rem;
+  }
+}
+
+.category-name {
+  display: flex;
+  justify-content: space-between;
+  user-select: none;
+  background-color: #f0f0f0;
+  padding: 0.2rem 1rem;
+}
+
+.category-name:hover {
+  cursor: pointer;
+}
+
+.category-name:hover > p {
+  scale: 1.5;
+  transition: all 0.05s;
+}
+
+.single-item {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.8rem;
+  border-bottom: 1px solid lightgray;
+}
+.single-item > div > .name {
+  font-weight: 600;
+}
+.single-item > div > .description {
+  color: #b7b7b7;
+  font-size: small;
+  margin-top: 1rem;
+}
+
+.single-item > div > img {
+  align-self: flex-end;
+  width: 120px;
+  height: 95px;
+  object-fit: cover;
+  object-position: top;
+  border-radius: 5px;
+  margin-left: 2rem;
+  background: #e8e8e8;
+}
+.restaurant-menu-container-shimmer-card > .restaurant-details-2 > .details {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.restaurant-menu-container-shimmer-card
+  > .restaurant-details-2
+  > .details
+  > .restaurant-details-name {
+  background-color: #f2f2f2;
+  animation: example 0.4s infinite;
+  border-radius: 5px;
+  width: 220px;
+  height: 20px;
+}
+.restaurant-menu-container-shimmer-card
+  > .restaurant-details-2
+  > .details
+  > .restaurant-details-cuisines {
+  background-color: #f2f2f2;
+  animation: example 0.4s infinite;
+  border-radius: 5px;
+  width: 150px;
+  height: 20px;
+}
+.restaurant-menu-container-shimmer-card
+  > .restaurant-details-2
+  > .details
+  > .restaurant-details-areaname {
+  background-color: #f2f2f2;
+  animation: example 0.4s infinite;
+  border-radius: 5px;
+  width: 80px;
+  height: 20px;
+}
+
+.restaurant-menu-container-shimmer-card
+  > .restaurant-details-2
+  > .rating-price {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+}
+.restaurant-menu-container-shimmer-card
+  > .restaurant-details-2
+  > .rating-price
+  > .rating-details {
+  background-color: #f2f2f2;
+  animation: example 0.4s infinite;
+  border-radius: 5px;
+  width: 50px;
+  height: 20px;
+}
+.restaurant-menu-container-shimmer-card
+  > .restaurant-details-2
+  > .rating-price
+  .restaurant-details-rating {
+  background-color: #f2f2f2;
+  animation: example 0.4s infinite;
+  border-radius: 5px;
+  width: 80px;
+  height: 20px;
+}
+
+.restaurant-menu-container-shimmer-card
+  > .restaurant-menu
+  > .menu
+  > .category-name {
+  background-color: #f2f2f2;
+  animation: example 0.4s infinite;
+  border-radius: 5px;
+  width: 95%;
+  height: 25px;
+}
+
+.restaurant-menu-container-shimmer-card
+  > .restaurant-menu
+  > .menu
+  > .single-item
+  > div {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+.restaurant-menu-container-shimmer-card
+  > .restaurant-menu
+  > .menu
+  > .single-item
+  > div
+  > .name {
+  background-color: #f2f2f2;
+  animation: example 0.4s infinite;
+  border-radius: 5px;
+  width: 200px;
+  height: 25px;
+}
+.restaurant-menu-container-shimmer-card
+  > .restaurant-menu
+  > .menu
+  > .single-item
+  > div
+  > .price {
+  background-color: #f2f2f2;
+  animation: example 0.4s infinite;
+  border-radius: 5px;
+  width: 30px;
+  height: 25px;
+}
+.restaurant-menu-container-shimmer-card
+  > .restaurant-menu
+  > .menu
+  > .single-item
+  > div
+  > .description {
+  background-color: #f4f4f4;
+  animation: example 0.4s infinite;
+  border-radius: 5px;
+  width: 200%;
+  height: 20px;
+}
+.restaurant-menu-container-shimmer-card
+  > .restaurant-menu
+  > .menu
+  > .single-item
+  > .image {
+  background-color: #f4f4f4;
+  animation: example 0.4s infinite;
+  border-radius: 5px;
+  width: 100px;
+  height: 80px;
 }
