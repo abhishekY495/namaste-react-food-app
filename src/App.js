@@ -7,6 +7,7 @@ import RestaurantsContainer from "./components/RestaurantsContainer";
 import Login from "./components/Login";
 import Error from "./components/Error";
 import RestaurantMenu from "./components/RestaurantMenu";
+import AboutClass from "./components/AboutClass";
 
 const App = () => {
   return (
@@ -25,6 +26,7 @@ const appRouter = createBrowserRouter([
     children: [
       { path: "/", element: <RestaurantsContainer /> },
       { path: "/login", element: <Login /> },
+      { path: "/about", element: <AboutClass /> },
       { path: "/restaurant/:resId", element: <RestaurantMenu /> },
     ],
   },
