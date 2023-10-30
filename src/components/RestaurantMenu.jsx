@@ -1,30 +1,13 @@
-import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 
-import { MENU_API_URL } from "../utils/constants";
 import starRatingIcon from "../assets/starRatingIcon.png";
 import MenuItemCard from "./MenuItemCard";
 import MenuShimmerCard from "./MenuShimmerCard";
+import RestaurantMenuData from "../utils/useRestaurantMenuData";
 
 const RestaurantMenu = () => {
-  const [restaurantData, setRestaurantData] = useState([]);
-  const [restaurantMenuData, setRestaurantMenuData] = useState([]);
   const { resId } = useParams();
-
-  const fetchMenuData = async () => {
-    const response = await fetch(MENU_API_URL + resId);
-    const data = await response.json();
-    const resData = data?.data?.cards[0]?.card?.card?.info;
-    const resMenuData =
-      data?.data?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards ||
-      data?.data?.cards[1]?.groupedCard?.cardGroupMap?.REGULAR?.cards;
-    setRestaurantData(resData);
-    setRestaurantMenuData(resMenuData);
-  };
-
-  useEffect(() => {
-    fetchMenuData();
-  }, []);
+  const [restaurantData, restaurantMenuData] = RestaurantMenuData(resId);
 
   return (
     <>

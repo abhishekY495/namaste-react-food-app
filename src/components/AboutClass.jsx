@@ -13,7 +13,6 @@ class AboutClass extends React.Component {
   async componentDidMount() {
     const response = await fetch("https://api.github.com/users/abhishekY495");
     const data = await response.json();
-    console.log(data);
 
     this.setState({
       profileData: data,
