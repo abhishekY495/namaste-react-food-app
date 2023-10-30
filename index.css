@@ -559,3 +559,12 @@ button {
 .profile-card > a {
   color: rgb(134, 142, 255);
 }
+
+.offline-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 4rem;
+  font-size: x-large;
+}
