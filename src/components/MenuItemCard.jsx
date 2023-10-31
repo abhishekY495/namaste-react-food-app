@@ -18,7 +18,7 @@ const MenuItemCard = ({ items, categoryName }) => {
       </div>
       {showMenuItems &&
         menuItems.map((menuItem) => {
-          const { name, id, price, imageId, description, isVeg } =
+          const { name, id, price, defaultPrice, imageId, description, isVeg } =
             menuItem?.card?.info;
           return (
             <div className="single-item" key={id}>
@@ -26,7 +26,9 @@ const MenuItemCard = ({ items, categoryName }) => {
                 <p className="name">
                   {name} {isVeg ? "🟢" : "🔴"}
                 </p>
-                <p className="price">₹{price / 100}</p>
+                <p className="price">
+                  ₹{price ? price / 100 : defaultPrice / 100}
+                </p>
                 <p className="description">{description}</p>
               </div>
               <div>
