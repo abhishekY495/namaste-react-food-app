@@ -8,11 +8,12 @@ const Error = () => {
       <Navbar />
       <div id="error-message">
         <h1>Oops, Something went wrong</h1>
-        <p>Try again later</p>
-        {error.status && (
+        {error.status ? (
           <p>
             {error.status} - {error.statusText}
           </p>
+        ) : (
+          <p>Try again later</p>
         )}
       </div>
     </>
