@@ -1,15 +1,14 @@
-import React, { useState } from "react";
+import React from "react";
 import { MENU_ITEM_IMAGE_CDN } from "../utils/constants";
 
-const MenuItemCard = ({ items, categoryName }) => {
-  const [showMenuItems, setShowMenuItems] = useState(true);
+const MenuItemCard = ({ items, categoryName, setShowIndex, showMenuItems }) => {
   const menuItems = items?.card?.card?.itemCards;
 
   return (
     <div className="menu">
       <div
         className="category-name"
-        onClick={() => setShowMenuItems(!showMenuItems)}
+        onClick={() => setShowIndex()}
       >
         <h4>
           {categoryName} ({menuItems.length})

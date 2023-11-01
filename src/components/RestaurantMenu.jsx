@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { useParams } from "react-router-dom";
 
 import starRatingIcon from "../assets/starRatingIcon.png";
@@ -8,6 +9,19 @@ import RestaurantMenuData from "../utils/useRestaurantMenuData";
 const RestaurantMenu = () => {
   const { resId } = useParams();
   const [restaurantData, restaurantMenuData] = RestaurantMenuData(resId);
+  const [showIndex, setShowIndex] = useState(0);
+
+  const menuCategories = restaurantMenuData.filter(
+    (menu) => menu?.card?.card?.itemCards
+  );
+
+  const setShowIndexCheck = (index) => {
+    if (showIndex === index) {
+      setShowIndex(null);
+    } else {
+      setShowIndex(index);
+    }
+  };
 
   return (
     <>
@@ -39,16 +53,16 @@ const RestaurantMenu = () => {
               </div>
             </div>
             <div className="restaurant-menu">
-              {restaurantMenuData?.map((items, index) => {
-                if (items?.card?.card?.itemCards) {
-                  return (
-                    <MenuItemCard
-                      items={items}
-                      key={index}
-                      categoryName={items?.card?.card?.title}
-                    />
-                  );
-                }
+              {menuCategories?.map((items, index) => {
+                return (
+                  <MenuItemCard
+                    items={items}
+                    key={index}
+                    categoryName={items?.card?.card?.title}
+                    setShowIndex={() => setShowIndexCheck(index)}
+                    showMenuItems={index === showIndex ? true : false}
+                  />
+                );
               })}
             </div>
           </>
