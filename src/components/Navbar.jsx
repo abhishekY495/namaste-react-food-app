@@ -3,11 +3,11 @@ import { Link } from "react-router-dom";
 
 import appLogo from "../assets/appLogo.png";
 import { UserData } from "../contexts/UserContext";
+import { CartContext } from "../contexts/CartContext";
 
 const Navbar = () => {
   const { userDetails } = useContext(UserData);
-
-  console.log(userDetails);
+  const { cartItems } = useContext(CartContext);
 
   return (
     <nav id="navbar">
@@ -16,7 +16,7 @@ const Navbar = () => {
         <Link to="/">Home</Link>
         <Link to="/about">About</Link>
         <Link to="/cart">
-          Cart <sup id="total-cart-items">0</sup>
+          Cart <sup id="total-cart-items">{cartItems.length}</sup>
         </Link>
         {userDetails?.name?.length > 0 ? (
           <Link to="/profile" className="profile-btn">

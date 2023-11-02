@@ -621,3 +621,39 @@ button {
 .login > a:hover {
   background-color: rgb(250, 180, 51);
 }
+
+.menu-item-image {
+  position: relative;
+}
+.add-to-cart-btn,
+.remove-cart-btn {
+  position: absolute;
+  font-size: 15px;
+  font-weight: bold;
+  bottom: 0;
+  right: 12px;
+  color: green;
+  background-color: #f9f9f9;
+  border: 1px solid green;
+  border-radius: 5px;
+  padding: 5px;
+}
+.remove-cart-btn {
+  right: 25px;
+}
+
+.add-to-cart-btn:hover,
+.remove-cart-btn:hover {
+  background-color: #dfdfdf;
+  cursor: pointer;
+}
+
+.cart-items-container {
+  width: 800px;
+  margin: auto;
+}
+.cart-items-container > h1 {
+  text-align: center;
+  margin-top: 1rem;
+  text-decoration: underline 2px solid;
+}
