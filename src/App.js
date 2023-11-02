@@ -6,16 +6,24 @@ import Navbar from "./components/Navbar";
 import RestaurantsContainer from "./components/RestaurantsContainer";
 import Login from "./components/Login";
 import Error from "./components/Error";
+import UserProfile from "./components//UserProfile";
+import { UserDataProvider } from "./contexts/UserContext";
+import { CartContextProvider } from "./contexts/CartContext";
+import Cart from "./components/Cart";
 
 const RestaurantMenu = lazy(() => import("./components/RestaurantMenu"));
 const AboutClass = lazy(() => import("./components/AboutClass"));
 
 const App = () => {
   return (
-    <div>
-      <Navbar />
-      <Outlet />
-    </div>
+    <UserDataProvider>
+      <CartContextProvider>
+        <div>
+          <Navbar />
+          <Outlet />
+        </div>
+      </CartContextProvider>
+    </UserDataProvider>
   );
 };
 
@@ -27,6 +35,8 @@ const appRouter = createBrowserRouter([
     children: [
       { path: "/", element: <RestaurantsContainer /> },
       { path: "/login", element: <Login /> },
+      { path: "/cart", element: <Cart /> },
+      { path: "/profile", element: <UserProfile /> },
       {
         path: "/about",
         element: (
