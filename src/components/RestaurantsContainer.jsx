@@ -80,7 +80,7 @@ const RestaurantsContainer = () => {
             Swiggy API down. <br /> Try after sometime
           </p>
         )}
-        {filteredRestaurantList.length === 0 && !loading && !apiError ? (
+        {filteredRestaurantList?.length === 0 && !loading && !apiError ? (
           <p className="search-error-message">No such Restaurant found</p>
         ) : (
           filteredRestaurantList.map((restaurant) => {
