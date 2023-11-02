@@ -10,8 +10,6 @@ const Login = () => {
   const navigate = useNavigate();
 
   const loginBtnhandler = () => {
-    console.log(username.length);
-    console.log(password.length);
     if (username.length > 0 && password.length > 0) {
       setUserDetails({ name: username });
       navigate("/profile");
